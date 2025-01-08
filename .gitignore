@@ -1,1 +1,3 @@
-completeds_env
+completeds_env/
+logs/
+artifacts/
