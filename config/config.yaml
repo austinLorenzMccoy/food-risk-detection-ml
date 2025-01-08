@@ -8,3 +8,12 @@ data_ingestion:
 data_validation:
   root_dir: artifacts/data_validation
   STATUS_FILE: artifacts/data_validation/status.txt
+
+data_transformation:
+  root_dir: artifacts/data_transformation
+  preprocessor_path: artifacts/data_transformation/preprocessor.joblib
+  transformed_train_path: artifacts/data_transformation/train.csv
+  transformed_test_path: artifacts/data_transformation/test.csv
+  target_encoder_path: artifacts/data_transformation/target_encoder.joblib
+  feature_names_path: artifacts/data_transformation/feature_names.json
+
