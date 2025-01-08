@@ -1,6 +1,6 @@
 from dataclasses import dataclass
 from pathlib import Path
-from typing import Optional
+from typing import Optional, Dict, List, Any
 
 @dataclass(frozen=True)
 class DataIngestionConfig:
@@ -37,3 +37,15 @@ class DataTransformationConfig:
             self.numerical_columns + 
             self.date_columns
         )
+@dataclass(frozen=True)
+class ModelTrainerConfig:
+    root_dir: Path
+    train_data_path: Path
+    model_path: Path  # Move this above default arguments
+    metric_file_name: Path
+    target_column: str
+    feature_columns: List[str]
+    model_params: Dict[str, Any]  # Model-specific parameters
+    test_data_path: Optional[Path] = None  # Optional if not splitting explicitly
+    train_test_ratio: float = 0.2  # Default value for train-test split ratio
+    random_state: int = 42  # Default random seed for reproducibility

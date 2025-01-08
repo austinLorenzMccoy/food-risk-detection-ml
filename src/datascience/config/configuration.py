@@ -4,7 +4,8 @@ from src.datascience.utils.common import read_yaml, create_directories
 from src.datascience.entity.config_entity import (
     DataIngestionConfig,
     DataValidationConfig,
-    DataTransformationConfig
+    DataTransformationConfig,
+    ModelTrainerConfig
 )
 from pathlib import Path
 from dataclasses import dataclass
@@ -80,3 +81,29 @@ class ConfigurationManager:
         )
 
         return data_transformation_config
+    
+
+    def get_model_trainer_config(self) -> ModelTrainerConfig:
+        config = self.config.model_trainer
+        model_params = {
+            "n_estimators": config.model_params.n_estimators,
+            "max_depth": config.model_params.max_depth,
+            "min_samples_split": config.model_params.min_samples_split,
+            "min_samples_leaf": config.model_params.min_samples_leaf
+        }
+
+        create_directories([config.root_dir])
+
+        model_trainer_config = ModelTrainerConfig(
+            root_dir=Path(config.root_dir),
+            train_data_path=Path(self.config.data_transformation.transformed_data_path),
+            model_path=Path(config.root_dir) / "model.joblib",
+            target_column=config.target_column,
+            train_test_ratio=config.train_test_ratio,
+            random_state=config.random_state,
+            model_params=model_params,
+            metric_file_name=config.metric_file_name,  # Add this line
+            feature_columns=self.schema.COLUMNS  # Add this line
+        )
+
+        return model_trainer_config
