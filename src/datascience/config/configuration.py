@@ -5,7 +5,8 @@ from src.datascience.entity.config_entity import (
     DataIngestionConfig,
     DataValidationConfig,
     DataTransformationConfig,
-    ModelTrainerConfig
+    ModelTrainerConfig,
+    ModelEvaluationConfig
 )
 from pathlib import Path
 from dataclasses import dataclass
@@ -107,3 +108,22 @@ class ConfigurationManager:
         )
 
         return model_trainer_config
+
+    def get_model_evaluation_config(self) -> ModelEvaluationConfig:
+            config = self.config.model_evaluation
+            model_params = self.params.KerasModel  
+            target_column = 'target'  
+
+            create_directories([config.root_dir])
+
+            model_evaluation_config = ModelEvaluationConfig(
+                root_dir=Path(config.root_dir),
+                test_data_path=Path(self.config.data_transformation.transformed_data_path),
+                model_path=Path(config.model_path),
+                metric_file_name=Path(config.metric_file_name),
+                all_params=model_params,
+                target_column=target_column,
+                mlflow_uri="https://dagshub.com/austinLorenzMccoy/CompleteDSproject.mlflow"  
+            )
+            return model_evaluation_config
+

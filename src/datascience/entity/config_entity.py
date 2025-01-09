@@ -49,3 +49,14 @@ class ModelTrainerConfig:
     test_data_path: Optional[Path] = None  # Optional if not splitting explicitly
     train_test_ratio: float = 0.2  # Default value for train-test split ratio
     random_state: int = 42  # Default random seed for reproducibility
+
+@dataclass(frozen=True)
+class ModelEvaluationConfig:
+    root_dir: Path
+    test_data_path: Path
+    model_path: Path
+    metric_file_name: Path
+    all_params: dict
+    target_column: str
+    mlflow_uri: str
+    

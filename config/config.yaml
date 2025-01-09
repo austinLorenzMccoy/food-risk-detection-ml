@@ -30,3 +30,9 @@ model_trainer:
     min_samples_split: 2
     min_samples_leaf: 1
 
+model_evaluation:
+  root_dir: artifacts/model_evaluation
+  test_data_path: artifacts/data_transformation/test.csv
+  model_path: artifacts/model_trainer/model.joblib
+  metric_file_name: metrics.json  # Add this line
+
