@@ -213,6 +213,52 @@ Assesses model performance using various metrics and validation techniques.
 ### Prediction Pipeline
 Orchestrates the end-to-end process from data input to prediction output.
 
+## 📈 MLflow Experiment Tracking
+
+This project uses MLflow for experiment tracking and model management. MLflow helps track experiments, compare model versions, and manage the model lifecycle.
+
+### MLflow Configuration
+
+The project is configured to use DAGsHub as the MLflow tracking server:
+
+```python
+os.environ["MLFLOW_TRACKING_URI"] = "https://dagshub.com/austinLorenzMccoy/CompleteDSproject.mlflow"
+os.environ["MLFLOW_TRACKING_USERNAME"] = "austinLorenzMccoy"
+os.environ["MLFLOW_TRACKING_PASSWORD"] = "1d06b3f1dc94bb2bb3ed0960c7d406847b9d362d"
+```
+
+### Accessing MLflow Tracking
+
+There are two ways to access MLflow tracking information:
+
+1. **DAGsHub MLflow Dashboard**:
+   Access experiments directly through the DAGsHub website at:
+   ```
+   https://dagshub.com/austinLorenzMccoy/CompleteDSproject.mlflow
+   ```
+   You'll need to log in with your DAGsHub credentials.
+
+2. **Python Script**:
+   Use the provided Python script to view experiments programmatically:
+   ```bash
+   python view_mlflow_experiments.py
+   ```
+
+### Tracked Metrics
+
+The following metrics are tracked for each model:
+- Accuracy
+- Precision
+- Recall
+- F1 Score
+
+### Model Parameters
+
+Key model parameters tracked in MLflow:
+- layer1_units: Number of units in the first layer
+- layer2_units: Number of units in the second layer
+- learning_rate: Learning rate for model training
+
 ## 🐳 Docker Configuration
 
 The project includes a comprehensive Dockerfile that:
