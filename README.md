@@ -287,7 +287,7 @@ This project is licensed under the GNU General Public License v3.0. See the [LIC
 - **Name**: Chibueze Augustine Chidera
 - **Email**: chibuezeaugustine23@gmail.com
 - **GitHub**: [austinLorenzMccoy](https://github.com/austinLorenzMccoy)
-
+- **Name**: Emmaculate Likinyo 
 ---
 
 <div align="center">
