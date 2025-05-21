@@ -1,5 +1,0 @@
-KerasModel:  # or whatever model type you're actually using
-    layer1_units: 64
-    layer2_units: 32
-    learning_rate: 0.001
-    # ... other relevant parameters
