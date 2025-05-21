@@ -1,0 +1,38 @@
+artifacts_root: artifacts
+
+data_ingestion:
+  root_dir: artifacts/data_ingestion
+  source_URL: https://raw.githubusercontent.com/sankarisubbulakshmi/Food-Adulteration/main/food_adulteration_data.csv
+  local_data_file: artifacts/data_ingestion/data.csv
+
+data_validation:
+  root_dir: artifacts/data_validation
+  STATUS_FILE: artifacts/data_validation/status.txt
+
+data_transformation:
+  root_dir: artifacts/data_transformation
+  preprocessor_path: artifacts/data_transformation/preprocessor.joblib
+  transformed_train_path: artifacts/data_transformation/train.csv
+  transformed_test_path: artifacts/data_transformation/test.csv
+  transformed_data_path: artifacts/data_transformation/transformed_data.csv  # Added this key
+  target_encoder_path: artifacts/data_transformation/target_encoder.joblib
+  feature_names_path: artifacts/data_transformation/feature_names.json
+
+model_trainer:
+  root_dir: artifacts/model_trainer
+  target_column: target
+  train_test_ratio: 0.2
+  random_state: 42
+  metric_file_name: metrics.json  # Add this line
+  model_params:
+    n_estimators: 100
+    max_depth: 10
+    min_samples_split: 2
+    min_samples_leaf: 1
+
+model_evaluation:
+  root_dir: artifacts/model_evaluation
+  test_data_path: artifacts/data_transformation/test.csv
+  model_path: artifacts/model_trainer/model.joblib
+  metric_file_name: metrics.json  # Add this line
+

@@ -1,0 +1,14 @@
+COLUMNS:
+  adulteration_id: int
+  product_name: str
+  brand: str
+  category: str
+  adulterant: str
+  detection_date: str
+  detection_method: str
+  severity: str
+  health_risk: str
+  action_taken: str
+
+TARGET_COLUMN: 
+  name: health_risk
