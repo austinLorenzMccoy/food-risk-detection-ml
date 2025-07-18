@@ -13,6 +13,47 @@
   }
 }
 
+.landing-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(to right, #0077cc, #00b4d8);
+  color: white;
+  text-align: center;
+  padding: 20px;
+}
+
+.landing-content {
+  max-width: 600px;
+}
+
+.landing-content h1 {
+  font-size: 48px;
+  margin-bottom: 20px;
+}
+
+.landing-content p {
+  font-size: 18px;
+  margin-bottom: 30px;
+}
+
+.landing-content button {
+  padding: 14px 28px;
+  font-size: 16px;
+  background-color: white;
+  color: #0077cc;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.landing-content button:hover {
+  background-color: #e0e0e0;
+}
+
+
 /* Base Reset */
 body {
   margin: 0;
