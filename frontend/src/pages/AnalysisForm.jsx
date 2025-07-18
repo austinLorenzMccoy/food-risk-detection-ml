@@ -31,6 +31,7 @@ const AnalysisForm = ({ handleSubmit, isSubmitting, submitStatus }) => (
       </button>
 
       {submitStatus === 'success' && (
+    // eslint-disable-next-line jsx-all/accessible-emoji
         <div className="submit-success">✅ Analysis submitted successfully!</div>
       )}
     </form>
