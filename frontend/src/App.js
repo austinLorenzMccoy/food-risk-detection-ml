@@ -2,9 +2,11 @@ import React, { useState, useEffect } from 'react';
 import NavigationBar from './pages/NavigationBar';
 import AnalysisForm from './pages/AnalysisForm';
 import RecentAnalysisList from './pages/RecentAnalysisList';
+import LandingPage from './pages/LandingPage';
 import './App.css';
 
 const App = () => {
+  const [showLanding, setShowLanding] = useState(true);
   const [activeTab, setActiveTab] = useState('analysis');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState('');
@@ -68,6 +70,10 @@ const App = () => {
     return status === 'Completed' ? 'badge badge-completed' : 'badge badge-progress';
   };
 
+  if (showLanding) {
+    return <LandingPage onStart={() => setShowLanding(false)} />;
+  }
+
   return (
     <div className={`app-container ${darkMode ? 'dark' : ''}`}>
       <NavigationBar
@@ -93,8 +99,6 @@ const App = () => {
           getStatusBadgeClass={getStatusBadgeClass}
         />
       )}
-
-      {/* You can add more tabs like reports and trends here */}
     </div>
   );
 };
