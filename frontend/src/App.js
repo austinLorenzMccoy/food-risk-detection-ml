@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from 'react';
-import NavigationBar from './components/NavigationBar';
-import AnalysisForm from './components/AnalysisForm';
-import RecentAnalysisList from './components/RecentAnalysisList';
+import NavigationBar from './pages/NavigationBar';
+import AnalysisForm from './pages/AnalysisForm';
+import RecentAnalysisList from './pages/RecentAnalysisList';
 import './App.css';
 
 const App = () => {
   const [activeTab, setActiveTab] = useState('analysis');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState('');
+  // eslint-disable-next-line no-unused-vars
   const [notifications, setNotifications] = useState(3);
   const [darkMode, setDarkMode] = useState(false);
   const [recentAnalyses, setRecentAnalyses] = useState([
